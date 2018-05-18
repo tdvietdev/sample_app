@@ -1,33 +1,119 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  users:
+    create:
+      info: "Please check your email to activate your account."
+      danger: "Create user not success"
+      success: "Welcome to the Sample App!"
+    update:
+      success: "Profile updated"
+    destroy:
+      success: "User deleted"
+      danger: "User not deleted"
+    logged_in_user:
+      danger: "Please log in."
+    find_user:
+      danger: "Not find user"
+    following:
+      title: "Following"
+    followers:
+      title: "Followers"
+    new:
+      title: "Sign up"
+      button: "Create my account"
+      confirmation: "Confirmation"
+    edit:
+      title: "Edit user"
+      h1: "Update your profile"
+      save: "Save"
+      change: "Change"
+      button: "Save change"
+      password_cf: "Confirm password"
+      change : "change"
+      danger: "Please log in."
+      not_found: "Not found!"
+    index:
+      title: "All user"
+      detele: "Delete"
+    user:
+      accept_del: "Are you sure?"
+    show:
+      not_found: "Not found user!"
+    load_user:
+      not_found: "Not found user!"
+
+
+  sessions:
+    create:
+      warning: "Account not activated.Check your email for the activation link."
+      danger: "Invalid email/password combination"
+    new:
+      login: "Log in"
+      new: "User create?"
+      signup: "Sign up now!"
+      span_remember: "Remember me on this computer"
+      forgot: "Forgot your password?"
+
+  application:
+    logged_in_user:
+      danger: "Please log in."
+    full_title:
+      base_title: "Ruby on Rails Tutorial Sample App"
+    hello:
+      html: "Hello world"
+
+  layouts:
+      footer:
+        the: "The "
+        rails: "Ruby on Rails Tutorial"
+        by: "by"
+        about: "About"
+        contact: "Contact"
+        new: "News"
+      header:
+        sample: "Sample App"
+        home: "Home"
+        help: "Help"
+        login: " Login"
+        logout: "Logout"
+        user: "Users"
+        account: "Account"
+        profile: "Profile"
+        settings: "Settings"
+
+  static_pages:
+    about:
+      about: "About"
+      the: "The "
+      rails: "Ruby on Rails Tutorial"
+      is: "is a"
+      book: "book"
+      and: "and"
+      screen: "screencast series"
+      a: "to teach web development with"
+      ruby: "Ruby on Rails"
+      sample: ". This is the sample application for the tutorial."
+    contact:
+      contact: "Contact"
+      p: "Contact the Ruby on Rails Tutorial about the sample app at the"
+      contact_page: "contact page."
+    help:
+      help: "Help"
+      p: "Get help on the Ruby on Rails Tutorial at the"
+      help_page: "Rails Tutorial help page"
+      a: "To get help on this sample app, see the"
+      rails: "Ruby on Rails Tutorial"
+      name: " book."
+    home:
+      title: "Home"
+      h1: "Welcome to the Sample App"
+      h2: "This is the home page for the"
+      rails: "Ruby on Rails Tutorial"
+      h2_end: "sample application."
+      signup: "Sign up now!"
+
+  shared:
+    error_messages:
+      error: "The form contains"
+      pluralize: "error"
+    user_info:
+      my_profile: "View my profile"
