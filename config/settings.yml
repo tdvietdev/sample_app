@@ -1,0 +1,19 @@
+user:
+  name:
+    max_length: 50
+  email:
+    max_length: 255
+  password:
+    min_length: 6
+  gravatar:
+    size: 80
+
+user_helper:
+  size: 80
+
+session_controller:
+  session: 1
+
+shared:
+  user_info:
+    gravatar: 50
