@@ -1,0 +1,8 @@
+<li>
+  <%= gravatar_for user, size: Settings.users.index.image_size %>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !user.current_user?(current_user) %>
+    | <%= link_to t(".detele"), user, method: :delete,
+      data: {confirm: t(".accept_del")} %>
+  <% end %>
+</li>
