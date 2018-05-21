@@ -18,6 +18,9 @@ gem "bootstrap-sass", "3.3.7"
 gem "bcrypt", "3.1.11"
 gem "jquery-rails", "~> 4.3", ">= 4.3.3"
 gem "config"
+gem "faker","1.7.3"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 
 group :development, :test do
   gem "sqlite3"

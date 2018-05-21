@@ -27,6 +27,20 @@ en:
       save: "Save"
       change: "Change"
       button: "Save change"
+      password_cf: "Confirm password"
+      change : "change"
+      danger: "Please log in."
+      not_found: "Not found!"
+    index:
+      title: "All user"
+      detele: "Delete"
+    user:
+      accept_del: "Are you sure?"
+    show:
+      not_found: "Not found user!"
+    load_user:
+      not_found: "Not found user!"
+
 
   sessions:
     create:

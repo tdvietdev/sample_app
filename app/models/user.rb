@@ -7,7 +7,9 @@ class User < ApplicationRecord
             format: {with: VALID_EMAIL_REGEX},
             uniqueness: {case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: {minimum: Settings.user.password.min_length}
+  validates :password, presence: true, length: {minimum: Settings.user.password.min_length}, allow_nil: true
+
+  scope :list_user, ->{select(:id, :name, :email).order created_at: :desc}
 
   def authenticated? remember_token
     return false if remember_digest.nil?
@@ -16,6 +18,10 @@ class User < ApplicationRecord
 
   def forget
     update_attribute :remember_digest, nil
+  end
+
+  def current_user? user
+    user == self
   end
 
   def remember
