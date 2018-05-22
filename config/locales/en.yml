@@ -21,6 +21,7 @@ en:
       title: "Sign up"
       button: "Create my account"
       confirmation: "Confirmation"
+      not_found: "Not found user!"
     edit:
       title: "Edit user"
       h1: "Update your profile"
@@ -40,11 +41,12 @@ en:
       not_found: "Not found user!"
     load_user:
       not_found: "Not found user!"
-
+    verify_user:
+      verify_user: "Not correct user!"
 
   sessions:
     create:
-      warning: "Account not activated.Check your email for the activation link."
+      warning_active: "Account not activated.Check your email for the activation link."
       danger: "Invalid email/password combination"
     new:
       login: "Log in"
@@ -117,3 +119,23 @@ en:
       pluralize: "error"
     user_info:
       my_profile: "View my profile"
+
+  user_mailer:
+    account_activation:
+      subject: "Account activation"
+      sample: "Sample App"
+      hi: "Hi"
+      welcome: "Welcome to the Sample App! Click on the link below to activate your account:"
+      activate: "Activate"
+    password_reset:
+      title: "Password reset"
+      click: "To reset your password click the link below:"
+      link_to: "Reset password"
+      link: "This link will expire in two hours."
+      note: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
+
+  account_activations:
+    edit:
+      success: "Account activated!"
+      danger_active: "Invalid activation link"
