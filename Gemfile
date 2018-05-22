@@ -21,7 +21,7 @@ gem "config"
 gem "faker","1.7.3"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
-
+gem "figaro"
 group :development, :test do
   gem "sqlite3"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

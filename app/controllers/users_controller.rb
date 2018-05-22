@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, except: :index
+  before_action :load_user, except: %i(index new)
   before_action :logged_in_user, only: %i(new create)
   before_action :verify_user, only: %i(edit update)
   before_action :verify_admin, only: :destroy
@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success] = t "users.create.success"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = t ".info"
+      redirect_to root_url
     else
       render :new
     end
@@ -47,20 +48,20 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
   def logged_in_user
-    unless logged_in?
+    if logged_in?
+      redirect_to current_user
+    else
       store_location
-      flash[:danger] = t ".danger"
-      redirect_to login_url
     end
   end
 
   def verify_user
     @user = User.find_by id: params[:id]
+    flash[:danger] = t ".verify_user"
     redirect_to root_url unless @user.current_user? current_user
   end
 
@@ -71,7 +72,6 @@ class UsersController < ApplicationController
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
-    flash[:danger] = t ".not_found"
-    redirect_to users_path
+    flash[:danger].now = t ".not_found"
   end
 end
