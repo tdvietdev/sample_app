@@ -161,3 +161,32 @@ en:
         title: "Reset password"
         confirmation: "Confirmation"
         update: "Update password"
+  microposts:
+      create:
+        success: "Micropost created!"
+      destroy:
+        success: "Micropost deleted"
+        danger: "Micropost not deleted"
+      correct_user:
+        danger: "Not find micropost"
+      micropost:
+        post: "Post"
+        ago: "ago."
+        delete: "Delete"
+        confirm: "You sure?"
+  shared:
+      error_messages:
+        error: "The form contains"
+        pluralize: "Error"
+      user_info:
+        my_profile: "View my profile"
+        micropost: "Micropost"
+      micropost_form:
+        content_placehoder: "Compose new micropost..."
+        submit: "Post"
+        size_image: "Maximum file size is 5MB. Please choose a smaller file."
+        change: "Change"
+
+  model:
+    mocropost:
+      error: "Should be less than 5MB"

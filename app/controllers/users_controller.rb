@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :load_user, except: %i(index new)
-  before_action :logged_in_user, only: %i(new create)
+  before_action :logged_in_user, only: %i(index edit update destroy)
   before_action :verify_user, only: %i(edit update)
   before_action :verify_admin, only: :destroy
 
@@ -43,7 +43,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @microposts = @user.microposts.page(params[:page]).per Settings.users.show.microposts_per_page
+  end
 
   private
 
@@ -51,27 +53,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def logged_in_user
-    if logged_in?
-      redirect_to current_user
-    else
-      store_location
-    end
-  end
-
-  def verify_user
-    @user = User.find_by id: params[:id]
-    flash[:danger] = t ".verify_user"
-    redirect_to root_url unless @user.current_user? current_user
-  end
-
   def verify_admin
     redirect_to root_url unless current_user.admin?
-  end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    return if @user
-    flash.now[:danger] = t ".not_found"
   end
 end
