@@ -51,6 +51,37 @@
   }
 }
 
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    border-top: 1px solid #e8e8e8;
+    padding: 10px 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+}
+
 #error_explanation {
   color: red;
   ul {
@@ -97,9 +128,11 @@ aside {
       text-align: left;
     }
   }
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
 }
-
-
 
 body {
   padding-top: 60px;
@@ -167,6 +200,13 @@ p {
 
 section {
   overflow: auto;
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
 }
 
 textarea {
