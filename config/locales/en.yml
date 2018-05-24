@@ -39,10 +39,18 @@ en:
       accept_del: "Are you sure?"
     show:
       not_found: "Not found user!"
+      post: "Microposts"
+    show_follow:
+      not_found: "Not found user!"
+      post: "Microposts"
     load_user:
       not_found: "Not found user!"
     verify_user:
       verify_user: "Not correct user!"
+    follow:
+      submit: "Follow"
+    unfollow:
+      submit: "Unfollow"
 
   sessions:
     create:
@@ -112,6 +120,7 @@ en:
       rails: "Ruby on Rails Tutorial"
       h2_end: "sample application."
       signup: "Sign up now!"
+      feed: "Micropost Feed"
 
   shared:
     error_messages:
@@ -162,30 +171,33 @@ en:
         confirmation: "Confirmation"
         update: "Update password"
   microposts:
-      create:
-        success: "Micropost created!"
-      destroy:
-        success: "Micropost deleted"
-        danger: "Micropost not deleted"
-      correct_user:
-        danger: "Not find micropost"
-      micropost:
-        post: "Post"
-        ago: "ago."
-        delete: "Delete"
-        confirm: "You sure?"
+    create:
+      success: "Micropost created!"
+    destroy:
+      success: "Micropost deleted"
+      danger: "Micropost not deleted"
+    correct_user:
+      danger: "Not find micropost"
+    micropost:
+      post: "Post"
+      ago: "ago."
+      delete: "Delete"
+      confirm: "You sure?"
   shared:
-      error_messages:
-        error: "The form contains"
-        pluralize: "Error"
-      user_info:
-        my_profile: "View my profile"
-        micropost: "Micropost"
-      micropost_form:
-        content_placehoder: "Compose new micropost..."
-        submit: "Post"
-        size_image: "Maximum file size is 5MB. Please choose a smaller file."
-        change: "Change"
+    error_messages:
+      error: "The form contains"
+      pluralize: "Error"
+    user_info:
+      my_profile: "View my profile"
+      micropost: "Micropost"
+    micropost_form:
+      content_placehoder: "Compose new micropost..."
+      submit: "Post"
+      size_image: "Maximum file size is 5MB. Please choose a smaller file."
+      change: "Change"
+    stats:
+      following: "Following"
+      followers: "Followers"
 
   model:
     mocropost:

@@ -47,6 +47,18 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.page(params[:page]).per Settings.users.show.microposts_per_page
   end
 
+  def following
+    @title = t ".title"
+    @users = @user.following.page(params[:page]).per Settings.users.index.per_page
+    render "show_follow"
+  end
+
+  def followers
+    @title = ".title"
+    @users = @user.followers.page(params[:page]).per Settings.users.index.per_page
+    render "show_follow"
+  end
+
   private
 
   def user_params

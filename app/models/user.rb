@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   has_many :microposts
+  has_many :active_relationships, class_name:  "Relationship",
+    foreign_key: "follower_id", dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :passive_relationships, class_name: "Relationship",
+    foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
@@ -12,7 +18,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: Settings.user.password.min_length}, allow_nil: true
 
   scope :list_user, ->{select(:id, :name, :email).order created_at: :desc}
-  mount_uploader :picture, PictureUploader
+
 
   def authenticated? attribute, token
     digest = send "#{attribute}_digest"
@@ -56,13 +62,25 @@ class User < ApplicationRecord
   end
 
   def feed
-    Micropost.where "user_id = ?", id
+    Micropost.by_followed id
+  end
+
+  def follow orther_user
+    following << orther_user
+  end
+
+  def unfollow orther_user
+    following.delete orther_user
+  end
+
+  def following? orther_user
+    following.include? orther_user
   end
 
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                 BCrypt::Engine.cost
+        BCrypt::Engine.cost
       BCrypt::Password.create string, cost: cost
     end
 
